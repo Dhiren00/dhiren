@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
+<title>Dhiren | Computer Science Student</title>
+
+<meta
+    name="description"
+    content="Dhiren's portfolio — Computer Science student, developer, and hackathon enthusiast."
+>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+    }
+
+    :root {
+        --bg: #0a0a0a;
+        --card: #111111;
+        --card-hover: #171717;
+        --text: #f5f5f5;
+        --muted: #a1a1aa;
+        --border: #262626;
+        --accent: #ffffff;
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    .container {
+        width: min(1100px, 90%);
+        margin: auto;
+    }
+
+    /* NAVBAR */
+
+    nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        background: rgba(10, 10, 10, 0.88);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border);
+    }
+
+    .nav-container {
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .logo {
+        font-size: 22px;
+        font-weight: 700;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 28px;
+        list-style: none;
+    }
+
+    .nav-links a {
+        color: var(--muted);
+        font-size: 14px;
+        transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+        color: var(--text);
+    }
+
+    /* HERO */
+
+    #home {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        padding-top: 70px;
+    }
+
+    .hero {
+        max-width: 800px;
+    }
+
+    .hero-tag {
+        color: var(--muted);
+        font-size: 15px;
+        margin-bottom: 18px;
+    }
+
+    .hero h1 {
+        font-size: clamp(45px, 8vw, 82px);
+        line-height: 1;
+        letter-spacing: -3px;
+        margin-bottom: 25px;
+    }
+
+    .hero h1 span {
+        color: var(--muted);
+    }
+
+    .hero p {
+        color: var(--muted);
+        font-size: 18px;
+        max-width: 650px;
+        margin-bottom: 32px;
+    }
+
+    .buttons {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 12px 20px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        font-size: 14px;
+        transition: 0.3s;
+    }
+
+    .btn-primary {
+        background: white;
+        color: black;
+        border-color: white;
+    }
+
+    .btn:hover {
+        transform: translateY(-2px);
+        background: #1c1c1c;
+        color: white;
+    }
+
+    .btn-primary:hover {
+        background: #dddddd;
+        color: black;
+    }
+
+    /* SECTIONS */
+
+    section {
+        padding: 100px 0;
+    }
+
+    .section-title {
+        font-size: 34px;
+        margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+        color: var(--muted);
+        margin-bottom: 40px;
+    }
+
+    /* ABOUT */
+
+    .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+
+    .about-text {
+        color: var(--muted);
+        font-size: 16px;
+    }
+
+    .info-card {
+        border: 1px solid var(--border);
+        background: var(--card);
+        border-radius: 12px;
+        padding: 25px;
+    }
+
+    .info-card h3 {
+        margin-bottom: 15px;
+    }
+
+    .info-card p {
+        color: var(--muted);
+        margin-bottom: 8px;
+    }
+
+    /* SKILLS */
+
+    .skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .skill {
+        border: 1px solid var(--border);
+        background: var(--card);
+        padding: 10px 16px;
+        border-radius: 7px;
+        color: #d4d4d8;
+        font-size: 14px;
+    }
+
+    .skill:hover {
+        background: var(--card-hover);
+    }
+
+    /* PROJECTS */
+
+    .projects {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .project {
+        border: 1px solid var(--border);
+        background: var(--card);
+        padding: 28px;
+        border-radius: 12px;
+        transition: 0.3s;
+    }
+
+    .project:hover {
+        transform: translateY(-5px);
+        background: var(--card-hover);
+    }
+
+    .project h3 {
+        margin-bottom: 12px;
+    }
+
+    .project p {
+        color: var(--muted);
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 20px;
+    }
+
+    .project-tags span {
+        font-size: 12px;
+        padding: 5px 9px;
+        border: 1px solid var(--border);
+        border-radius: 5px;
+        color: var(--muted);
+    }
+
+    .project-link {
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    /* EXPERIENCE */
+
+    .timeline {
+        border-left: 1px solid var(--border);
+        padding-left: 25px;
+    }
+
+    .timeline-item {
+        margin-bottom: 35px;
+        position: relative;
+    }
+
+    .timeline-item::before {
+        content: "";
+        position: absolute;
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background: white;
+        left: -30px;
+        top: 7px;
+    }
+
+    .timeline-item h3 {
+        margin-bottom: 5px;
+    }
+
+    .timeline-item .date {
+        color: var(--muted);
+        font-size: 13px;
+        margin-bottom: 8px;
+    }
+
+    .timeline-item p {
+        color: var(--muted);
+    }
+
+    /* HACKATHONS */
+
+    .hackathons {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+    }
+
+    .hackathon {
+        border: 1px solid var(--border);
+        background: var(--card);
+        border-radius: 12px;
+        padding: 24px;
+    }
+
+    .hackathon h3 {
+        margin-bottom: 8px;
+    }
+
+    .hackathon p {
+        color: var(--muted);
+        font-size: 14px;
+    }
+
+    /* CONTACT */
+
+    .contact-box {
+        border: 1px solid var(--border);
+        background: var(--card);
+        border-radius: 14px;
+        padding: 45px;
+        text-align: center;
+    }
+
+    .contact-box h2 {
+        font-size: 35px;
+        margin-bottom: 12px;
+    }
+
+    .contact-box p {
+        color: var(--muted);
+        margin-bottom: 25px;
+    }
+
+    .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .social-links a {
+        color: var(--muted);
+        transition: 0.3s;
+    }
+
+    .social-links a:hover {
+        color: white;
+    }
+
+    /* FOOTER */
+
+    footer {
+        border-top: 1px solid var(--border);
+        padding: 25px 0;
+        text-align: center;
+        color: var(--muted);
+        font-size: 13px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+
+        .nav-links {
+            gap: 12px;
+        }
+
+        .nav-links a {
+            font-size: 12px;
+        }
+
+        .about-grid,
+        .projects {
+            grid-template-columns: 1fr;
+        }
+
+        .hackathons {
+            grid-template-columns: 1fr;
+        }
+
+        .hero h1 {
+            letter-spacing: -2px;
+        }
+
+        section {
+            padding: 75px 0;
+        }
+    }
+
+    @media (max-width: 500px) {
+
+        .nav-container {
+            height: 60px;
+        }
+
+        .logo {
+            font-size: 18px;
+        }
+
+        .nav-links {
+            display: none;
+        }
+
+        #home {
+            padding-top: 60px;
+        }
+
+        .hero p {
+            font-size: 16px;
+        }
+
+        .contact-box {
+            padding: 30px 20px;
+        }
+    }
+</style>
+```
+
+</head>
+
+<body>
+
+```
+<!-- NAVIGATION -->
+
+<nav>
+    <div class="container nav-container">
+
+        <a href="#home" class="logo">Dhiren.</a>
+
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#hackathons">Hackathons</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+    </div>
+</nav>
+
+
+<!-- HERO -->
+
+<section id="home">
+
+    <div class="container">
+
+        <div class="hero">
+
+            <div class="hero-tag">
+                Computer Science Student • Developer • Builder
+            </div>
+
+            <h1>
+                Hi, I'm Dhiren<span>.</span>
+            </h1>
+
+            <p>
+                I'm a Computer Science student at Mahindra University,
+                interested in software development, AI, data science,
+                and building practical solutions through projects and hackathons.
+            </p>
+
+            <div class="buttons">
+
+                <a href="#projects" class="btn btn-primary">
+                    View Projects
+                </a>
+
+                <a href="#contact" class="btn">
+                    Contact Me
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+    <div class="container">
+
+        <h2 class="section-title">About Me</h2>
+
+        <p class="section-subtitle">
+            A little about who I am and what I'm working toward.
+        </p>
+
+        <div class="about-grid">
+
+            <div class="about-text">
+
+                <p>
+                    I'm a Computer Science student at Mahindra University,
+                    Hyderabad. I enjoy learning by building projects,
+                    solving programming problems, and participating in
+                    hackathons.
+                </p>
+
+                <br>
+
+                <p>
+                    Currently, I'm strengthening my foundations in
+                    Data Structures and Algorithms, Python, SQL,
+                    web development, AI, and data analysis.
+                </p>
+
+                <br>
+
+                <p>
+                    My goal is to turn what I learn into useful products
+                    and gain real-world software engineering experience.
+                </p>
+
+            </div>
+
+            <div class="info-card">
+
+                <h3>Quick Info</h3>
+
+                <p><strong>University:</strong> Mahindra University</p>
+
+                <p><strong>Field:</strong> Computer Science Engineering</p>
+
+                <p><strong>Location:</strong> Hyderabad, India</p>
+
+                <p><strong>Interests:</strong> AI, Data Science, Software Development</p>
+
+                <p><strong>Currently:</strong> Building projects & improving DSA</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+    <div class="container">
+
+        <h2 class="section-title">Skills</h2>
+
+        <p class="section-subtitle">
+            Technologies and concepts I'm currently working with.
+        </p>
+
+        <div class="skills">
+
+            <div class="skill">C++</div>
+            <div class="skill">Python</div>
+            <div class="skill">C</div>
+            <div class="skill">SQL</div>
+            <div class="skill">HTML</div>
+            <div class="skill">CSS</div>
+            <div class="skill">JavaScript</div>
+            <div class="skill">FastAPI</div>
+            <div class="skill">Streamlit</div>
+            <div class="skill">Git</div>
+            <div class="skill">GitHub</div>
+            <div class="skill">Data Structures</div>
+            <div class="skill">Algorithms</div>
+            <div class="skill">Pandas</div>
+            <div class="skill">NumPy</div>
+            <div class="skill">Machine Learning</div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+    <div class="container">
+
+        <h2 class="section-title">Projects</h2>
+
+        <p class="section-subtitle">
+            Some of the things I've been building.
+        </p>
+
+        <div class="projects">
+
+            <!-- PROJECT 1 -->
+
+            <div class="project">
+
+                <h3>CiphEra — Decision Autopsy Agent</h3>
+
+                <p>
+                    An AI system that analyzes past decisions,
+                    identifies what went wrong, extracts lessons,
+                    and uses memory to improve future decision-making.
+                </p>
+
+                <div class="project-tags">
+                    <span>Python</span>
+                    <span>AI</span>
+                    <span>FastAPI</span>
+                    <span>Hindsight</span>
+                    <span>Streamlit</span>
+                </div>
+
+                <a
+                    href="https://github.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="project-link"
+                >
+                    GitHub →
+                </a>
+
+            </div>
+
+
+            <!-- PROJECT 2 -->
+
+            <div class="project">
+
+                <h3>Research Reviewer Recommendation</h3>
+
+                <p>
+                    A system that analyzes research papers and recommends
+                    suitable reviewers using semantic similarity,
+                    embeddings, and reviewer profiles.
+                </p>
+
+                <div class="project-tags">
+                    <span>Python</span>
+                    <span>FastAPI</span>
+                    <span>NLP</span>
+                    <span>Embeddings</span>
+                    <span>Machine Learning</span>
+                </div>
+
+                <a
+                    href="https://github.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="project-link"
+                >
+                    GitHub →
+                </a>
+
+            </div>
+
+
+            <!-- PROJECT 3 -->
+
+            <div class="project">
+
+                <h3>Expense Manager</h3>
+
+                <p>
+                    A personal expense tracking application with
+                    categorized expenses and analytics for understanding
+                    spending patterns.
+                </p>
+
+                <div class="project-tags">
+                    <span>Python</span>
+                    <span>FastAPI</span>
+                    <span>MySQL</span>
+                    <span>Streamlit</span>
+                </div>
+
+                <a
+                    href="https://github.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="project-link"
+                >
+                    GitHub →
+                </a>
+
+            </div>
+
+
+            <!-- PROJECT 4 -->
+
+            <div class="project">
+
+                <h3>Food Rescue Platform</h3>
+
+                <p>
+                    A sustainability-focused platform designed to reduce
+                    food waste by connecting surplus food from restaurants,
+                    hostels, and supermarkets with organizations that can
+                    distribute it.
+                </p>
+
+                <div class="project-tags">
+                    <span>AI</span>
+                    <span>SDG 2</span>
+                    <span>Web</span>
+                    <span>Data</span>
+                </div>
+
+                <a
+                    href="https://github.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="project-link"
+                >
+                    GitHub →
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- HACKATHONS -->
+
+<section id="hackathons">
+
+    <div class="container">
+
+        <h2 class="section-title">Hackathons</h2>
+
+        <p class="section-subtitle">
+            Learning, building, and shipping under pressure.
+        </p>
+
+        <div class="hackathons">
+
+            <div class="hackathon">
+
+                <h3>Microsoft Hackathon</h3>
+
+                <p>
+                    Worked with a team to develop and present a
+                    technology-focused solution.
+                </p>
+
+            </div>
+
+            <div class="hackathon">
+
+                <h3>VNR Hackathon</h3>
+
+                <p>
+                    Participated in a collaborative hackathon focused
+                    on solving a practical problem through technology.
+                </p>
+
+            </div>
+
+            <div class="hackathon">
+
+                <h3>Idea Hackathon</h3>
+
+                <p>
+                    Explored an innovative idea and worked on turning
+                    the concept into a practical solution.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- EXPERIENCE / ACTIVITIES -->
+
+<section>
+
+    <div class="container">
+
+        <h2 class="section-title">Activities</h2>
+
+        <p class="section-subtitle">
+            Experiences outside regular coursework.
+        </p>
+
+        <div class="timeline">
+
+            <div class="timeline-item">
+
+                <h3>Enigma Coding Club</h3>
+
+                <div class="date">
+                    Mahindra University
+                </div>
+
+                <p>
+                    Participating in coding activities and technical
+                    events while improving problem-solving skills.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <h3>Technical Events & Workshops</h3>
+
+                <div class="date">
+                    Mahindra University
+                </div>
+
+                <p>
+                    Participated in technical workshops, competitions,
+                    and student-led technology events.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-item">
+
+                <h3>Competitive Programming</h3>
+
+                <div class="date">
+                    Ongoing
+                </div>
+
+                <p>
+                    Practicing Data Structures and Algorithms through
+                    problem solving and LeetCode.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+    <div class="container">
+
+        <div class="contact-box">
+
+            <h2>Let's Connect</h2>
+
+            <p>
+                I'm always interested in projects, hackathons,
+                internships, and opportunities to learn and build.
+            </p>
+
+            <div class="buttons" style="justify-content: center;">
+
+                <a
+                    href="mailto:YOUR_EMAIL@gmail.com"
+                    class="btn btn-primary"
+                >
+                    Email Me
+                </a>
+
+            </div>
+
+            <br>
+
+            <div class="social-links">
+
+                <a
+                    href="https://github.com/YOUR_USERNAME"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    GitHub
+                </a>
+
+                <a
+                    href="https://www.linkedin.com/in/YOUR_USERNAME/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    LinkedIn
+                </a>
+
+                <a
+                    href="https://leetcode.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    LeetCode
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="container">
+
+        © 2026 Dhiren. Built with HTML & CSS.
+
+    </div>
+
+</footer>
+```
+
+</body>
+</html>
